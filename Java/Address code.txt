@@ -1,0 +1,241 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+import java.util.ArrayList;
+
+class Address
+{
+    private String email;
+    private String Lname;
+    private String Fname;
+    private String Street;
+    private String City;
+    private String State;
+    private String Country;
+    private int pin;
+    
+    public Address(String email,String Lname,String Fname,String Street,String City,String State,String Country,int pin)
+    {
+        this.email=email;
+        this.Lname=Lname;
+        this.Fname=Fname;
+        this.Street=Street;
+        this.City=City;
+        this.State=State;
+        this.Country=Country;
+        this.pin=pin;
+    }
+    public String getemail()
+    {
+        return email;
+    }
+    public String getLname()
+    {
+        return Lname;
+    }
+    public String getFname()
+    {
+        return Fname;
+    }
+    public String getStreet()
+    {
+        return Street;
+    }
+    public String getCity()
+    {
+        return City;
+    }
+    public String getState()
+    {
+        return State;
+    }
+    public String getCountry()
+    {
+        return Country;
+    }
+    public int getpin()
+    {
+        return pin;
+    }
+    public void setemail(String email)
+    {
+        this.email=email;
+    }
+    public void setLname(String Lname)
+    {
+        this.Lname=Lname;
+    }
+    public void setFname(String Fname)
+    {
+        this.Fname=Fname;
+    }
+    public void setStreet(String Street)
+    {
+        this.Street=Street;
+    }
+    public void setCity(String City)
+    {
+        this.City=City;
+    }
+    public void setState(String State)
+    {
+        this.State=State;
+    }
+    public void setCountry(String Country)
+    {
+        this.Country=Country;
+    }
+    public void setpin(int pin)
+    {
+        this.pin=pin;
+    }
+    @Override
+    public String toString()
+    {
+        return "First name "+Fname+" last name "+Lname+" street "+Street+" city "+City+" state "+State ;
+    }
+}
+class AddressBook 
+{
+    private ArrayList <Address> a=new ArrayList <Address>();
+    public AddressBook()
+    { }
+    public void add(Address z)
+    {
+        a.add(z);
+    }
+    public void modify(String email,String Lname,String Fname,String Street,String City,String State,String Country,int pin)
+    {
+        String e=email;
+        String l=Lname;
+        String f=Fname;
+        String s=Street;
+        String c=City;
+        String s1=State;
+        String c1=Country;
+        int o=0;
+        int p=pin;
+        boolean b1=l.isBlank();
+        boolean b2=f.isBlank();
+        boolean b3=s.isBlank();
+        boolean b4=c.isBlank();
+        boolean b5=s1.isBlank();
+        boolean b6=c1.isBlank();
+        
+        for(Address x:a)
+        {
+            if(e==x.getemail())
+            {
+                if(b1==false)
+                {
+                    x.setLname(l);
+                    o=1;
+                }
+                if(b2==false)
+                {
+                    x.setFname(f);
+                    o=1;
+                }
+                if(b3==false)
+                {
+                    x.setStreet(s);
+                    o=1;
+                }
+                if(b4==false)
+                {
+                    x.setCity(c);
+                    o=1;
+                }
+                if(b5==false)
+                {
+                    x.setState(s1);
+                    o=1;
+                }
+                if(b6==false)
+                {
+                    x.setCountry(c1);
+                    o=1;
+                }
+                if(p!=0)
+                {
+                    x.setpin(p);
+                    o=1;
+                }
+                
+            }
+        }
+        if(o!=1)
+        {
+            System.out.println("Email Not Found");
+        }
+    }
+    public void remove(Address z)
+    {
+        a.remove(z);
+    }
+    public void search(String email)
+    {
+        String e=email;
+        int q=0;
+        for(Address x:a)
+        {
+            if(e==x.getemail())
+            {
+                System.out.println("Address Found");
+                q=1;
+            }
+        }
+        if(q!=1)
+            System.out.println("Address Not Found");
+    }
+    public void MailAddr(String e)
+    {
+        String e1=e;
+        for(Address x:a)
+        {
+            if(e==x.getemail())
+            {
+                System.out.println("First name "+x.getFname()+" last name "+x.getLname()+" street "+x.getStreet()+" city "+x.getCity()+" state "+x.getState());
+            }
+        }
+    }
+    public void view()
+    {
+        for(Address z:a)
+        {
+        System.out.println(z.getemail());
+        System.out.println(z.getLname());
+        System.out.println(z.getFname());
+        System.out.println(z.getStreet());
+        System.out.println(z.getCity());
+        System.out.println(z.getState());
+        System.out.println(z.getCountry());
+        System.out.println(z.getpin());
+        }
+    }
+}
+
+
+class Main
+{
+   public static void main(String[] args) 
+	{
+	    AddressBook AddBook=new AddressBook(); 
+	    Address A1=new Address("abc@gmail.com","Random1","Fname1","2nd Street","KARNATAKA","BANGALORE","INDIA",12);
+        Address A2=new Address("abcd@gmail.com","Random2","Fname2","3rd Street","KARNATAKA","HUBBLI","INDIA",13);
+        Address A3=new Address("abcde@gmail.com","Random3","Fname3","4th Street","KARNATAKA","UDUPI","INDIA",14);
+        AddBook.add(A1);
+        AddBook.add(A2);
+        AddBook.add(A3);
+	    AddBook.view();
+	    AddBook.search("abcde@gmail.com");
+	    AddBook.modify("abcde@gmail.com","Random4","","","","","",0);
+	    AddBook.view();
+	    AddBook.search("mary@ssl.com");
+	}
+}
