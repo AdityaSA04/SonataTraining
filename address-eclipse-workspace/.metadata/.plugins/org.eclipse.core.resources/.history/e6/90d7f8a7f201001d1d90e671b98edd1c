@@ -1,0 +1,17 @@
+package com.sonata;
+import java.util.ArrayList;
+public class AddressBook {
+	ArrayList<Address>l = new ArrayList<Address>();
+	public AddressBook() {
+		
+	}
+	public  void add(Address a) {
+		l.add(a);
+	}
+	public void removeAddress(Address a) {
+		l.remove(a);
+	}
+	public void view() {
+		System.out.println(l);
+	}
+}

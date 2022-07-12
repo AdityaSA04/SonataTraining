@@ -1,0 +1,16 @@
+package com.sonata;
+
+public class Main {
+
+	public static void main(String[] args) {
+		Address addr1 = new Address("aditya@gmail.com", "S A", "Aditya","Bangalore","Bangalore","Karnataka","India",560064);
+		Address addr2 = new Address("harsh@gmail.com", "Singh", "Harsh","Mumbai","Mumbai","Maharashtra","India",560064);
+		AddressBook ab = new AddressBook();
+		ab.add(addr1);
+		ab.add(addr2);
+		ab.view();
+		ab.removeAddress(addr1);
+		ab.view();
+	}
+
+}
