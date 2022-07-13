@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans   
+        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+ 
+   	<bean id = "add" class = "com.sonata.springdemo.impl.Add" scope = "prototype"></bean>
+   	
+   	 <bean id = "address" class = "com.springAddress.Address" scope = "prototype">
+        <property name="email" value="aditya@gmai.com"></property>
+        <property name="lname" value="S A"></property>
+        <property name="fname" value="Aditya"></property>
+        <property name="address" value="Bangalore"></property>
+        <property name="city" value="Bangalore"></property>
+        <property name="state" value="Karnataka"></property>
+        <property name="country" value="India"></property>
+        <property name="pin" value="560064"></property>
+        </bean>
+ 
+        </beans>
+   
+   	
+   	
